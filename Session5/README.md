@@ -1,10 +1,9 @@
 **Team Members:**
 
-Ayushee Mittal
-Smita Sasindran
-Vishesh Sethi
-Avneesh Nolkha
-
+Avneesh Nolkha   
+Ayushee Mittal     
+Smita Sasindran    
+Vishesh Sethi    
 
 --------------
 **File 1:**
