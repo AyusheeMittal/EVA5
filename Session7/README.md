@@ -20,7 +20,7 @@ conv6 (1x1)         | 10  | 16
 conv7 (depthwise)   | 14  | 16   
 conv8 (1x1)         | 14  | 16   
 maxpool2            | 16  | 8   
-conv9               | 32  | 6   
+conv9 (dilated)     | 32  | 6   
 maxpool3            | 36  | 3   
 conv10 (1x1)        | 36  | 3     
 gap                 | 52  | 1   
