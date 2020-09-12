@@ -1,4 +1,4 @@
-Team Members:
+**Team Members:**
 
 Avneesh Nolkha  
 Ayushee Mittal  
@@ -25,3 +25,10 @@ maxpool3            | 36  | 3
 conv10 (1x1)        | 36  | 3     
 gap                 | 52  | 1   
 ```
+
+---------
+
+
+Final Accuracy: 82%   
+Number of parameters: 935,052   
+Epochs: 50   
