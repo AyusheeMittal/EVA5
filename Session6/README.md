@@ -1,5 +1,5 @@
 Team Members
-Avneesh Nolkha
+Avneesh Nolkha 
 Ayushee Mittal
 Smita Sasindran
 Vishesh Sethi
@@ -9,6 +9,7 @@ Total Parameters of the model : 8,666
 Total Epochs run for each below case : 25
 
 1. With L1 + BN  
+
    Best Training Accuracy - 99.23 (at epoch 25)
    Best Test Accuracy - 99.50 (at epoch 24)
    
