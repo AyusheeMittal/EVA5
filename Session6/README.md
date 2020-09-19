@@ -28,5 +28,4 @@ Total  Epochs run for each below case : 25
    Best Training Accuracy - 99.04 (at epoch 25)
    Best Test Accuracy - 99.34 (at epoch 25)
 
-
 Graph attached for Training accuracy, Test accuracy, Training Loss, Test Loss.
