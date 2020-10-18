@@ -11,7 +11,7 @@ A sample top level json:
   "_via_settings": {settings_for_ui},
   "_via_img_metadata": {annotations_per_image},
   "_via_attributes": {annotations_metadata},
-  "_via_image_id_list": [image_list]
+  "_via_image_id_list": [image_list],
   "_via_data_format_version": version
   
 }  
@@ -24,7 +24,7 @@ The sections are described in detail below:
 This section of the json file contains details of all the annotations for each image file.    
 The annotation classes can be configured in the UI tool, and its details are in the "_via_attributes" section below    
 
-Sample Section:     
+#### Sample section:     
 For an image named image1.jpeg, a sample section looks like:
 
 ```
@@ -41,28 +41,25 @@ For an image named image1.jpeg, a sample section looks like:
 ```
 
 Here, size is image_height x image_width    
-file_attributes contains file level metadata like caption, and image url.    
-The main information is present under regions. Each section under this contains information about one annotated region in this image   
+"file_attributes" contains file level metadata like caption, and image url.    
+The main information is present under regions.   
+Each section under this contains information about one annotated region in this image   
 
 
 #### Regions:  
-Each image can contain 0 or more annotated regions.    
-Regions can be of different shapes. The supported ones are Rectangle, Circle, Ellipse, Polygon, Landmark points and regions defined by Lines   
-For YOLO, we are going to use rectangular bounding boxes to define the area of interest    
+- Each image can contain 0 or more annotated regions.    
+- Regions can be of different shapes. The supported ones are Rectangle, Circle, Ellipse, Polygon, Landmark points and regions defined by Lines   
+- The annotation tool considers origin to be the topmost-left corner of the image. All coordinates are referenced wrt this point
+- For YOLO, we are going to use rectangular bounding boxes to define the area of interest    
 Since it is rectangular, each annotated region is defined by four main parameters: x, y, width, height     
-
-
-The annotation tool considers origin to be the topmost-left corner of the image    
-All coordinates are referenced wrt this point    
-For a rectangular region, (x, y) coordinates refers to top left corner of the bounding box   
-width and height refer to the width and height of the bounding region    
+- For the rectangular region, (x, y) coordinates refers to top left corner of the bounding box   
+- width and height refer to the width and height of the bounding region    
 The centroid of the bounding box can be calculated from this if required.    
 
 
-Apart from the region parameters, we also get the class (ie the label) of this region   
-
+Apart from the region parameters, we also get the class (ie the label) of this region.     
+A sample rectangular region is given below:   
 ```
-A sample Rectangular section is given below:
 {
   "shape_attributes": {
     "name": "rect",
@@ -76,18 +73,47 @@ A sample Rectangular section is given below:
   }
 }
 ```
-As explained, there can be many regions in an image, and so the regions section under this file will have multiple entries like this
-
-
+As explained, there can be many regions in an image, and so the regions section under this file will have multiple entries like this:
+```
+"regions": [
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 171,
+            "y": 3,
+            "width": 59,
+            "height": 39
+          },
+          "region_attributes": {
+            "Class": "hardhat"
+          }
+        },
+        {
+          "shape_attributes": {
+            "name": "rect",
+            "x": 150,
+            "y": 85,
+            "width": 87,
+            "height": 79
+          },
+          "region_attributes": {
+            "Class": "vest"
+          }
+        }
+      ]
+```
+We need to extract each region under "regions" to get all annotations for the given image
 
 
 ### 2. _via_settings
-Contains the settings for the ui, such as project details, editor window sizes, default region colour etc
-
-### 3. _via_attributes
-This gives us information about the types of classes we have configured for annotating
+Contains the settings for the ui, such as project details, editor window sizes, default region colour etc   
 
 
-### 4. _via_image_id_list
-List of all images that were annotated/uploaded for annotation
+
+### 3. _via_attributes   
+This gives us information about the types of classes we have configured for annotating    
+
+
+### 4. _via_image_id_list  
+List of all images that were annotated/uploaded for annotation   
 
