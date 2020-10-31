@@ -24,6 +24,7 @@ There are four folders provided:
 ### 1. Raw images  
 The raw images are present under the images folder. The images were collected by crowdsourcing and do not follow any particular naming convention.   
 They are also of varied sizes. There are 3591 images.    
+These are mostly .jpg files (< 0.5% might be otherwise)    
 
 ### 2. Bounding Boxes   
 A Yolo compatible annotation tool was used to annotate the classes within these images.   
@@ -41,17 +42,19 @@ A few things to note:
 Depth images were created using this repo:  
 https://github.com/intel-isl/MiDaS   
 There are 3588 depth images, they are present under the 'depth' folder, and are greyscale images     
+These are .png files, make sure to handle accordingly since the raw images are .jpg     
 The names are same as that of the corresponding raw images. 
 
 ### 4. Planar images
 Planes were created using this repo:  
 https://github.com/NVlabs/planercnn   
+These are .png files, make sure to handle accordingly since the raw images are .jpg     
 There are 3545 planar images. The names are same as that of the corresponding raw images.  
 
 
 ### Note: 
 This dataset needs to be cleaned up further. 
- - There are a few (<10) png files among the raw images, which need to be removed (These do not have labels ie bounding boxes, nor do they have planar images).   
- - There are a few (<5) label files which are of invalid syntax (the x,y coordinates, or the width/height are > 1). These need to be discarded.   
+ - There are a few (<0.5%) png files among the raw images, which need to be removed (These do not have labels ie bounding boxes, nor do they have planar images).   
+ - There are a few (<0.5%) label files which are of invalid syntax (the x,y coordinates, or the width/height are > 1). These need to be discarded.   
  - Final cleaned up dataset should only include data where all these three files are present for a raw image:   labels text file, depth image and planar image   
  
