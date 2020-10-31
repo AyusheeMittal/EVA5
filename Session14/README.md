@@ -1,30 +1,34 @@
 
 ## Dataset:
 
-This dataset consists of around 3500 images containing four main classes:
+This dataset consists of around 3500 images containing four main classes:  
  - Hard hats
  - Vests
  - Masks
  - Boots
 
-Common settings include construction areas/construction workers, military personnel, traffic policemen etc 
-Not all classes are present in an image. Also one image may have many repitions of the same class 
-For example, a group of construction workers without helmets, but with vests and boots 
+Common settings include construction areas/construction workers, military personnel, traffic policemen etc.     
+Not all classes are present in an image. Also one image may have many repitions of the same class.     
+For example, a group of construction workers without helmets, but with vests and boots.      
+
+The dataset is available under:    <provide link to gdrive>   
+
 
 ## Explanation:
-There are four folders provided:
- - images
+There are four folders provided:  
+ - images 
  - labels
  - depth
  - planar
 
 ### 1. Raw images  
 The raw images are present under the images folder. The images were collected by crowdsourcing and do not follow any particular naming convention.   
-They are also of varied sizes.    
+They are also of varied sizes. There are 3591 images.    
 
 ### 2. Bounding Boxes   
 A Yolo compatible annotation tool was used to annotate the classes within these images.   
-These are present under the labels folder as text files. However please note that not all raw images have a corresponding label   
+These are present under the labels folder as text files. However please note that not all raw images have a corresponding label.
+There are 3527 labelled text files. 
 A few things to note:  
 - Each image can contain 0 or more annotated regions.    
 - Each annotated region is defined by four main parameters: x, y, width, height   
@@ -33,4 +37,21 @@ A few things to note:
 - A label file corresponding to an image is a space separated set of numbers. Each line corresponds to one annotated region in the image.  
 - The first column maps to the class of the annotated region (order of the classes is as described above). The other four numbers represent the bounding boxes (ie annotated region), and stand for the x, y, width and height parameters explained earlier. These four numbers should be between 0 and 1. 
 
-    
+### 3. Depth images
+Depth images were created using this repo:  
+https://github.com/intel-isl/MiDaS   
+There are 3588 depth images, they are present under the 'depth' folder, and are greyscale images     
+The names are same as that of the corresponding raw images. 
+
+### 4. Planar images
+Planes were created using this repo:  
+https://github.com/NVlabs/planercnn   
+There are 3545 planar images. The names are same as that of the corresponding raw images.  
+
+
+### Note: 
+This dataset needs to be cleaned up further. 
+ - There are a few (<10) png files among the raw images, which need to be removed (These do not have labels ie bounding boxes, nor do they have planar images).   
+ - There are a few (<5) label files which are of invalid syntax (the x,y coordinates, or the width/height are > 1). These need to be discarded.   
+ - Final cleaned up dataset should only include data where all these three files are present for a raw image:   labels text file, depth image and planar image   
+ 
