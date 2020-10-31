@@ -19,7 +19,7 @@ There are four folders provided:
  - images 
  - labels
  - depth
- - planar
+ - planes
 
 ### 1. Raw images  
 The raw images are present under the images folder. The images were collected by crowdsourcing and do not follow any particular naming convention.   
