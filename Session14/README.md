@@ -58,3 +58,9 @@ This dataset needs to be cleaned up further.
  - There are a few (<0.5%) label files which are of invalid syntax (the x,y coordinates, or the width/height are > 1). These need to be discarded.   
  - Final cleaned up dataset should only include data where all these three files are present for a raw image:   labels text file, depth image and planar image   
  
+
+### Team members:
+Avneesh Nolkha   
+Ayushee Mittal   
+Smita Sasindran   
+Vishesh Sethi   
